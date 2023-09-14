@@ -2,7 +2,7 @@
 
 ## ⭐ Step-by-Step
 
-[![Installation](https://github.com/avongard/Windows-10-Debloat-Tool/assets/95338964/7787b54e-61e1-47ef-b642-88f85bcd5c92)]([https://github.com/avongard/Windows-10-Debloat-Tool/wiki/How%E2%80%90to-Install-&-Run-Scripts)
+[![Installation](https://cdn.discordapp.com/attachments/991110514312745111/1151742536277295174/267834378-7787b54e-61e1-47ef-b642-88f85bcd5c92.png)]([https://github.com/avongard/Windows-10-Debloat-Tool/wiki/How%E2%80%90to-Install-&-Run-Scripts)
 
 
 ## 🫂 Hi, I'm Michael
