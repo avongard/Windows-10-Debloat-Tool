@@ -1,4 +1,4 @@
-﻿# Windows Debloat Tool
+# Windows Debloat Tool
 function choice() {
     # Clear the screen
     cls
@@ -8,19 +8,19 @@ function choice() {
     Write-Host "=               Windows 10 Debloat Tool               ="
     Write-Host "======================================================="
     Write-Host ""
-    Write-Host "                    - [R]emove"
+    Write-Host "           [1] - Remove Windows Default Apps"
     Write-Host ""
-    Write-Host "                    - [S]ettings"
+    Write-Host "           [2] - Install Applications"
     Write-Host ""
-    Write-Host "                    - [I]nstall"
+    Write-Host "           [3] - Change System Settings"
     Write-Host ""
-    Write-Host "                    - [T]asks"
+    Write-Host "           [4] - Stop & Delete Default Tasks"
     Write-Host ""
-    Write-Host "============================================================================"
+    Write-Host "======================================================="
  
 
     # Prompt the user to filter by status
-    $readChoice = Read-Host -Prompt "Please enter an option from the list above or press 'q' to quit the program"
+    $readChoice = Read-Host -Prompt "Please enter an option from above or press 'q' to quit"
 
     # Call the next function
     choice_check -userChoice $readChoice
@@ -29,8 +29,8 @@ function choice_check() {
     # Convert to string
     Param([String]$userChoice)
 
-    # Check for R
-    if ($userChoice -Match "^[rR]$") {
+    # Check for 1
+    if ($userChoice -Match "1") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Navigating to menu..."
         Start-Sleep -Milliseconds 250
         choice_remove
@@ -39,8 +39,8 @@ function choice_check() {
         choice
     }
 
-    # Check for I
-    if ($userChoice -Match "^[iI]$") {
+    # Check for 2
+    if ($userChoice -Match "2") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Navigating to menu..."
         Start-Sleep -Milliseconds 250
         choice_install
@@ -49,8 +49,8 @@ function choice_check() {
         choice
     }
 
-    # Check for S
-    if ($userChoice -Match "^[sS]$") {
+    # Check for 3
+    if ($userChoice -Match "3") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Navigating to menu..."
         Start-Sleep -Milliseconds 250
         choice_settings
@@ -59,8 +59,8 @@ function choice_check() {
         choice
     }
 
-        # Check for T
-    if ($userChoice -Match "^[tT]$") {
+        # Check for 4
+    if ($userChoice -Match "4") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Navigating to menu..."
         Start-Sleep -Milliseconds 250
         choice_tasks
@@ -80,7 +80,7 @@ function choice_check() {
     }
 
     # Check for other value
-    if ($readStatus -NotMatch "^[qQ]$|^[rR]$|^[sS]$|^[iI]$|^[tT]$") {
+    if ($readStatus -NotMatch "^[qQ]$|1|2|3|4") {
         Write-Host -BackgroundColor Red -ForegroundColor White "The specified option doesn't exist."
         Start-Sleep 2
         choice
@@ -92,7 +92,7 @@ function choice_check() {
 
 
 
-# [R]emove
+# Remove
 function choice_remove() {
     # Clear the screen
     cls
@@ -100,19 +100,21 @@ function choice_remove() {
     # List all options
     Write-Host "What would you like to remove?
 
-     - [C]ortana
+     [1] - Cortana
 
-     - [X]box
+     [2] - Xbox
 
-     - [O]neDrive
+     [3] - OneDrive
 
-     - [P]aint
+     [4] - Paint
 
-     - [E]dge
+     [5] - Edge
 
-     - [M]edia Player
+     [6] - Media Player
 
-     ← [B]ack
+     [7] - Photos
+
+   ← [B]ack
     "
 
     # Prompt the user to filter by status
@@ -125,8 +127,8 @@ function choice_check_remove() {
     # Convert to string
     Param([String]$readChoiceRemove)
 
-    # Check for C
-    if ($readChoiceRemove -Match "^[cC]$") {
+        # Check for 1
+    if ($readChoiceRemove -Match "1") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Cortana..."
         Start-Sleep -Milliseconds 250
 
@@ -134,8 +136,8 @@ function choice_check_remove() {
         cortana
     }
 
-        # Check for X
-    if ($readChoiceRemove -Match "^[xX]$") {
+        # Check for 2
+    if ($readChoiceRemove -Match "2") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Xbox..."
         Start-Sleep -Milliseconds 250
 
@@ -143,8 +145,8 @@ function choice_check_remove() {
         xbox
     }
 
-        # Check for O
-    if ($readChoiceRemove -Match "^[oO]$") {
+        # Check for 3
+    if ($readChoiceRemove -Match "3") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing OneDrive..."
         Start-Sleep -Milliseconds 250
 
@@ -152,8 +154,8 @@ function choice_check_remove() {
         onedrive
     }
 
-        # Check for P
-    if ($readChoiceRemove -Match "^[pP]$") {
+        # Check for 4
+    if ($readChoiceRemove -Match "4") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Photos..."
         Start-Sleep -Milliseconds 250
 
@@ -161,8 +163,8 @@ function choice_check_remove() {
         photos
     }
 
-        # Check for E
-    if ($readChoiceRemove -Match "^[eE]$") {
+        # Check for 5
+    if ($readChoiceRemove -Match "5") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Microsoft Edge..."
         Start-Sleep -Milliseconds 250
 
@@ -170,8 +172,8 @@ function choice_check_remove() {
         edge
     }
 
-        # Check for M
-    if ($readChoiceRemove -Match "^[mM]$") {
+        # Check for 6
+    if ($readChoiceRemove -Match "6") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Windows Media Player..."
         Start-Sleep -Milliseconds 250
 
@@ -179,7 +181,16 @@ function choice_check_remove() {
         media
     }
 
-        # Check for B
+        # Check for 7
+    if ($readChoiceRemove -Match "7") {
+        Write-Host -BackgroundColor Yellow -ForegroundColor White "Removing Photos..."
+        Start-Sleep -Milliseconds 250
+
+        # Call Photos Function
+        photos
+    }
+
+        # Check for 8
     if ($readChoiceRemove -Match "^[bB]$") {
         Write-Host -BackgroundColor Green -ForegroundColor White "Navigating to Menu..."
         Start-Sleep -Milliseconds 250
@@ -204,7 +215,7 @@ function choice_check_remove() {
     }
 
         # Check for other value
-    if ($readStatus -NotMatch "^[qQ]$|^[cC]$|^[xX]$|^[oO]$|^[eE]$|^[pP]$|^[mM]$|^[bB]$") {
+    if ($readStatus -NotMatch "^[qQ]$|1|2|3|4|5|6|7|^[bB]$") {
         Write-Host -BackgroundColor Red -ForegroundColor White "The specified status doesn't exist."
         Start-Sleep 2
         choice_remove
@@ -212,6 +223,34 @@ function choice_check_remove() {
 }
 # Functions
 function cortana() {
+Get-AppxPackage -AllUsers Microsoft.549981C3F5F10 | Remove-AppxPackage -AllUsers # Uninstall the software
+Get-AppxProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online | Out-Null # Prevent reinstallation of software
+
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "ContentDeliveryAllowed" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "FeatureManagementEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "OemPreInstalledAppsEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "PreInstalledAppsEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "PreInstalledAppsEverEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SilentInstalledAppsEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "PreInstalledAppsEverEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-314559Enabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338387Enabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338388Enabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338389Enabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContent-338393Enabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SubscribedContentEnabled" 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "SystemPaneSuggestionsEnabled" 0
+
+$test1 = Test-Path -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" # Check if Windows Store exists in registry
+if(-not($test1)){
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" # Create the registry entry
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" -Name "AutoDownload" -Value 2 -PropertyType "Dword" # Assign a named entry a value to deny 
+}
+$test2 = Test-Path -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" # Check if Cloud Content exists in registry
+if(-not($test2)){
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" # Create the registry entry
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableWindowsConsumerFeatures" -Value 1  # Assign a named entry a value to deny 
+}
 }
 function xbox() {
 }
@@ -223,13 +262,15 @@ function edge() {
 }
 function media() {
 }
+function photos() {
+}
 
 
 
 
 
 
-# [I]nstall
+# Install
 function choice_install() {
     # Clear the screen
     cls
@@ -237,17 +278,17 @@ function choice_install() {
     # List all options
     Write-Host "What would you like to install?
 
-     - [F]irefox
+     [1] - Firefox
 
-     - [P]aint.net
+     [2] - Paint.net
 
-     - [V]LC
+     [3] - VLC
 
-     - [C]Cleaner
+     [4] - CCleaner
 
-     - [W]inrar
+     [5] - Winrar
 
-     ← [B]ack
+   ← [B]ack
     "
 
     # Prompt the user to filter by status
@@ -260,8 +301,8 @@ function choice_check_install() {
     # Convert to string
     Param([String]$readChoiceInstall)
 
-    # Check for F
-    if ($readChoiceInstall -Match "^[fF]$") {
+    # Check for 1
+    if ($readChoiceInstall -Match "1") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Installing Firefox..."
         Start-Sleep -Milliseconds 250
 
@@ -269,8 +310,8 @@ function choice_check_install() {
         firefox
     }
 
-        # Check for X
-    if ($readChoiceInstall -Match "^[pP]$") {
+        # Check for 2
+    if ($readChoiceInstall -Match "2") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Installing Paint.net..."
         Start-Sleep -Milliseconds 250
 
@@ -278,8 +319,8 @@ function choice_check_install() {
         paintdotnet
     }
 
-        # Check for V
-    if ($readChoiceInstall -Match "^[vV]$") {
+        # Check for 3
+    if ($readChoiceInstall -Match "3") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Installing VLC..."
         Start-Sleep -Milliseconds 250
 
@@ -287,8 +328,8 @@ function choice_check_install() {
         vlc
     }
 
-        # Check for C
-    if ($readChoiceInstall -Match "^[cC]$") {
+        # Check for 4
+    if ($readChoiceInstall -Match "4") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Installing CCleaner..."
         Start-Sleep -Milliseconds 250
 
@@ -296,8 +337,8 @@ function choice_check_install() {
         ccleaner
     }
 
-        # Check for W
-    if ($readChoiceInstall -Match "^[wW]$") {
+        # Check for 5
+    if ($readChoiceInstall -Match "5") {
         Write-Host -BackgroundColor Yellow -ForegroundColor White "Installing Winrar..."
         Start-Sleep -Milliseconds 250
 
@@ -330,14 +371,32 @@ function choice_check_install() {
     }
 
         # Check for other value
-    if ($readChoiceInstall -NotMatch "^[qQ]$|^[Ff]$|^[pP]$|^[vV]$|^[cC]$|^[wW]$|^[bB]$") {
+    if ($readChoiceInstall -NotMatch "^[qQ]$|^[bB]$|1|2|3|4|5") {
         Write-Host -BackgroundColor Red -ForegroundColor White "The specified option doesn't exist."
         Start-Sleep 2
         choice_remove
     }
 }
-# Functions
+# Functions # Consider adding Discord, Slack, Google Chrome, Sublime, Steam, Spotify, OBS # Wget
 function firefox() {
+$workdir = "C:\installer\" # Where to install
+$test = Test-Path -Path "C:\installer\" # Check if destination exists
+if(-not($test)){
+    New-Item -Path $workdir -ItemType Directory # Create install location
+}
+
+
+$source = "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US" # Where to download from
+$destination = "$workdir\firefox.exe" # Where to download to
+Invoke-WebRequest $source -OutFile $destination # Download from source to destination
+
+Start-Process -FilePath "$workdir\firefox.exe" -ArgumentList "/S" # Start the install
+
+Start-Sleep -s 35 # Wait for script to finish
+Write-Host -BackgroundColor Green -ForegroundColor White "Complete." # Complete prompt
+Start-Sleep 2
+
+rm -Force $workdir\f* # Remove the installer
 }
 function paintdotnet() {
 }
@@ -346,14 +405,30 @@ function vlc() {
 function ccleaner() {
 }
 function winrar() {
+$workdir = "C:\installer\" # Where to install
+$test = Test-Path -Path "C:\installer\" # Check if destination exists
+if(-not($test)){
+    New-Item -Path $workdir -ItemType Directory # Create install location
 }
 
-# Consider adding Discord, Slack, Google Chrome, Sublime, Steam, Spotify, OBS
+
+$source = "rarlab.com/rar/winrar-x64-620.exe" # Where to download from
+$destination = "$workdir\winrar.exe" # Where to download to
+Invoke-WebRequest $source -OutFile $destination # Download from source to destination
+
+Start-Process -FilePath "$workdir\winrar.exe" -ArgumentList "/S" # Start the install
+
+Start-Sleep -s 35 # Wait for script to finish
+Write-Host -BackgroundColor Green -ForegroundColor White "Complete." # Complete prompt
+Start-Sleep 2
+rm -Force $workdir\w* # Remove the installer
+}
 
 
 
 
-# [S]ettings
+
+# Settings
 function choice_settings() {
     # Clear the screen
     cls
@@ -361,17 +436,17 @@ function choice_settings() {
     # List all options
     Write-Host "What settings would you like to change?
 
-     - [L]ight Mode
+     [1] - Light Mode
 
-     - [D]ark Mode
+     [2] - Dark Mode
 
-     - [P]rivacy Options
+     [3] - Privacy Options
 
-     - []
+     [ ] -
 
-     - []
+     [ ] - 
 
-     ← [B]ack
+   ← [B]ack
     "
 
     # Prompt the user to filter by status
@@ -384,8 +459,8 @@ function choice_check_settings() {
     # Convert to string
     Param([String]$readChoiceSettings)
 
-    # Check for L
-    if ($readChoiceSettings -Match "^[lL]$") {
+    # Check for 1
+    if ($readChoiceSettings -Match "1") {
         Write-Host -BackgroundColor Green -ForegroundColor White "Complete."
         Start-Sleep 2
 
@@ -393,8 +468,8 @@ function choice_check_settings() {
         light
     }
 
-        # Check for D
-    if ($readChoiceSettings -Match "^[dD]$") {
+        # Check for 2
+    if ($readChoiceSettings -Match "2") {
         Write-Host -BackgroundColor Green -ForegroundColor White "Complete."
         Start-Sleep 2
 
@@ -402,8 +477,8 @@ function choice_check_settings() {
         dark
     }
 
-        # Check for P
-    if ($readChoiceSettings -Match "^[pP]$") {
+        # Check for 3
+    if ($readChoiceSettings -Match "3") {
         Write-Host -BackgroundColor Green -ForegroundColor White "Complete."
         Start-Sleep 2
 
@@ -436,7 +511,7 @@ function choice_check_settings() {
     }
 
         # Check for other value
-    if ($readChoiceSettings -NotMatch "^[qQ]$|^[bB]$|^[dD]$|^[lL]$") {
+    if ($readChoiceSettings -NotMatch "^[qQ]$|^[bB]$|1|2|3") {
         Write-Host -BackgroundColor Red -ForegroundColor White "The specified option doesn't exist."
         Start-Sleep 2
         choice_settings
@@ -473,7 +548,7 @@ Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Capabilit
 
 
 
-# [T]asks
+# Tasks # In the works needs more research
 function choice_tasks() {
     # Clear the screen
     cls
